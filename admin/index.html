@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>Recovery Admin</h1>
+            </div>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <label for="admin-2fa">2FA Code</label>
+                    <input type="text" id="admin-2fa" placeholder="Enter 2FA code">
+                </div>
+                <button type="button" id="admin-login-btn" class="btn btn-primary">Login</button>
+            </form>
+            <div class="login-footer">
+                <p>Secure access for authorized personnel only</p>
+                <p>Compliance with Australian Privacy Act 1988</p>
+            </div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

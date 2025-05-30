@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Recovery Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Top Navigation -->
+    <header class="admin-header">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <span>Recovery Admin</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search users or alerts...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="admin-profile">
+            <div class="notifications">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+            </div>
+            <div class="profile-dropdown">
+                <img src="https://via.placeholder.com/40" alt="Admin Avatar">
+                <span>Dr. Smith</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <nav class="admin-sidebar">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="alerts.html">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Alerts</span>
+                        <span class="badge">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reports.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="interventions.html">
+                        <i class="fas fa-hand-holding-medical"></i>
+                        <span>Interventions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="privacy.html">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacy</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="index.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="admin-content">
+            <div class="page-header">
+                <h1>System Settings</h1>
+                <button class="btn btn-primary" id="save-settings-btn">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+
+            <!-- Tabs for Settings -->
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="general">General</button>
+                    <button class="tab-btn" data-tab="alerts">Alert Settings</button>
+                    <button class="tab-btn" data-tab="notifications">Notifications</button>
+                    <button class="tab-btn" data-tab="account">Account Settings</button>
+                </div>
+                
+                <!-- General Settings -->
+                <div class="tab-content active" id="general">
+                    <div class="settings-section">
+                        <h3>System Preferences</h3>
+                        
+                        <div class="form-group">
+                            <label>Time Zone:</label>
+                            <select>
+                                <option selected>Australia/Sydney (UTC+10:00)</option>
+                                <option>Australia/Melbourne (UTC+10:00)</option>
+                                <option>Australia/Brisbane (UTC+10:00)</option>
+                                <option>Australia/Adelaide (UTC+9:30)</option>
+                                <option>Australia/Perth (UTC+8:00)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Date Format:</label>
+                            <select>
+                                <option selected>DD/MM/YYYY</option>
+                                <option>MM/DD/YYYY</option>
+                                <option>YYYY-MM-DD</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Time Format:</label>
+                            <select>
+                                <option selected>24-hour (14:30)</option>
+                                <option>12-hour (2:30 PM)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Language:</label>
+                            <select>
+                                <option selected>English (Australia)</option>
+                                <option>English (US)</option>
+                                <option>Mandarin</option>
+                                <option>Spanish</option>
+                                <option>Arabic</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Theme:</label>
+                            <div class="theme-options">
+                                <div class="theme-option active">
+                                    <div class="theme-preview light"></div>
+                                    <span>Light</span>
+                                </div>
+                                <div class="theme-option">
+                                    <div class="theme-preview dark"></div>
+                                    <span>Dark</span>
+                                </div>
+                                <div class="theme-option">
+                                    <div class="theme-preview system"></div>
+                                    <span>System</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Dashboard Configuration</h3>
+                        
+                        <div class="form-group">
+                            <label>Default Dashboard View:</label>
+                            <select>
+                                <option selected>Overview</option>
+                                <option>User-focused</option>
+                                <option>Alert-focused</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Dashboard Refresh Rate:</label>
+                            <select>
+                                <option>Real-time</option>
+                                <option selected>Every 5 minutes</option>
+                                <option>Every 15 minutes</option>
+                                <option>Every 30 minutes</option>
+                                <option>Manual refresh only</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label>Visible Dashboard Widgets:</label>
+                            <div class="checkbox-list">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="widget-users" checked>
+                                    <label for="widget-users">Total Users</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="widget-alerts" checked>
+                                    <label for="widget-alerts">Active Alerts</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="widget-checkins" checked>
+                                    <label for="widget-checkins">Daily Check-ins</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="widget-interventions" checked>
+                                    <label for="widget-interventions">Interventions</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="widget-trends" checked>
+                                    <label for="widget-trends">Health Score Trends</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="widget-timeline" checked>
+                                    <label for="widget-timeline">Risk Events Timeline</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alert Settings -->
+                <div class="tab-content" id="alerts">
+                    <div class="settings-section">
+                        <h3>Alert Thresholds</h3>
+                        
+                        <div class="form-group">
+                            <label>Heart Rate (High) Threshold:</label>
+                            <div class="range-input">
+                                <input type="range" min="100" max="180" value="120">
+                                <span>120 BPM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Heart Rate (Low) Threshold:</label>
+                            <div class="range-input">
+                                <input type="range" min="30" max="60" value="45">
+                                <span>45 BPM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>EDA Spike Threshold:</label>
+                            <div class="range-input">
+                                <input type="range" min="1" max="10" value="7">
+                                <span>7</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Body Temperature (High) Threshold:</label>
+                            <div class="range-input">
+                                <input type="range" min="37" max="40" step="0.1" value="38.5">
+                                <span>38.5°C</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Missed Check-ins Before Alert:</label>
+                            <select>
+                                <option>1 consecutive</option>
+                                <option selected>2 consecutive</option>
+                                <option>3 consecutive</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Alert Prioritization</h3>
+                        
+                        <div class="form-group">
+                            <label>High Priority Alerts:</label>
+                            <div class="checkbox-list">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="priority-physio" checked>
+                                    <label for="priority-physio">Physiological Spikes</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="priority-craving" checked>
+                                    <label for="priority-craving">Self-Reported Cravings (Severe)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="priority-checkin" checked>
+                                    <label for="priority-checkin">Missed Check-ins (>2 consecutive)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Alert Auto-Resolution:</label>
+                            <select>
+                                <option>Never auto-resolve</option>
+                                <option selected>After 24 hours if acknowledged</option>
+                                <option>After 48 hours if acknowledged</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Notification Settings -->
+                <div class="tab-content" id="notifications">
+                    <div class="settings-section">
+                        <h3>Notification Preferences</h3>
+                        
+                        <div class="form-group">
+                            <label>Email Notifications:</label>
+                            <div class="checkbox-list">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="email-alerts" checked>
+                                    <label for="email-alerts">High Priority Alerts</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="email-summary" checked>
+                                    <label for="email-summary">Daily Summary</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="email-reports">
+                                    <label for="email-reports">Scheduled Reports</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="email-system" checked>
+                                    <label for="email-system">System Notifications</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>SMS Notifications:</label>
+                            <div class="checkbox-list">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sms-alerts" checked>
+                                    <label for="sms-alerts">High Priority Alerts Only</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sms-summary">
+                                    <label for="sms-summary">Daily Summary</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Push Notifications:</label>
+                            <div class="checkbox-list">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="push-alerts" checked>
+                                    <label for="push-alerts">All Alerts</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="push-checkins" checked>
+                                    <label for="push-checkins">New Check-ins</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="push-interventions" checked>
+                                    <label for="push-interventions">Intervention Responses</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Quiet Hours:</label>
+                            <div class="time-range">
+                                <input type="time" value="22:00">
+                                <span>to</span>
+                                <input type="time" value="07:00">
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="override-quiet" checked>
+                                <label for="override-quiet">Allow High Priority Alerts during Quiet Hours</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Account Settings -->
+                <div class="tab-content" id="account">
+                    <div class="settings-section">
+                        <h3>Profile Information</h3>
+                        
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" value="Dr. Sarah Smith">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" value="dr.smith@recovery-clinic.com.au">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Phone:</label>
+                            <input type="tel" value="+61 4XX XXX XXX">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Role:</label>
+                            <select>
+                                <option selected>Clinical Administrator</option>
+                                <option>Clinician</option>
+                                <option>Research Staff</option>
+                                <option>System Administrator</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Profile Picture:</label>
+                            <div class="profile-upload">
+                                <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                                <button class="btn btn-secondary">Change Picture</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Security</h3>
+                        
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <button class="btn btn-secondary">Change Password</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Two-Factor Authentication:</label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="tfa-toggle" checked>
+                                <label for="tfa-toggle"></label>
+                                <span>Enabled</span>
+                            </div>
+                            <button class="btn btn-text">Configure 2FA</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Session Timeout:</label>
+                            <select>
+                                <option>15 minutes</option>
+                                <option selected>30 minutes</option>
+                                <option>1 hour</option>
+                                <option>4 hours</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Login History:</label>
+                            <button class="btn btn-text">View Login History</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Range input value display
+            const rangeInputs = document.querySelectorAll('.range-input input[type="range"]');
+            rangeInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const valueDisplay = this.nextElementSibling;
+                    let value = this.value;
+                    
+                    // Add units based on the label
+                    const label = this.closest('.form-group').querySelector('label').textContent;
+                    if (label.includes('Heart Rate')) {
+                        value += ' BPM';
+                    } else if (label.includes('Temperature')) {
+                        value += '°C';
+                    }
+                    
+                    valueDisplay.textContent = value;
+                });
+            });
+            
+            // Theme option selection
+            const themeOptions = document.querySelectorAll('.theme-option');
+            themeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    themeOptions.forEach(o => o.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Save settings button
+            const saveBtn = document.getElementById('save-settings-btn');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', function() {
+                    // Show a success message
+                    alert('Settings saved successfully!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

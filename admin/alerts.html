@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts Management | Recovery Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Top Navigation -->
+    <header class="admin-header">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <span>Recovery Admin</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search users or alerts...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="admin-profile">
+            <div class="notifications">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+            </div>
+            <div class="profile-dropdown">
+                <img src="https://via.placeholder.com/40" alt="Admin Avatar">
+                <span>Dr. Smith</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <nav class="admin-sidebar">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="alerts.html">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Alerts</span>
+                        <span class="badge">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reports.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="interventions.html">
+                        <i class="fas fa-hand-holding-medical"></i>
+                        <span>Interventions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="privacy.html">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacy</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="index.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="admin-content">
+            <div class="page-header">
+                <h1>Alerts Management</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-bell-slash"></i> Mute All
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alert Stats -->
+            <div class="alert-stats">
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">New Alerts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">In Review</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Resolved Today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">87%</div>
+                    <div class="stat-label">Response Rate</div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label>Alert Type:</label>
+                    <select>
+                        <option>All Types</option>
+                        <option>Physiological Spike</option>
+                        <option>Missed Check-In</option>
+                        <option>High Self-Reported Craving</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select>
+                        <option>All Status</option>
+                        <option>New</option>
+                        <option>In Review</option>
+                        <option>Resolved</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Time Range:</label>
+                    <select>
+                        <option>Today</option>
+                        <option>Last 24 Hours</option>
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                    </select>
+                </div>
+                <div class="filter-group search">
+                    <input type="text" placeholder="Search alerts...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- Alerts Table -->
+            <div class="table-container">
+                <table class="data-table alerts-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="select-all">
+                            </th>
+                            <th>Alert ID</th>
+                            <th>User</th>
+                            <th>Type</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="high-priority">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>ALT-001</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/32" alt="User">
+                                    <span>John Doe</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="alert-type physio">
+                                    <i class="fas fa-heartbeat"></i> Physiological Spike
+                                </span>
+                            </td>
+                            <td>Today, 10:23 AM</td>
+                            <td><span class="badge-status new">New</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon" title="Trigger Intervention"><i class="fas fa-hand-holding-medical"></i></button>
+                                    <button class="btn-icon" title="Assign"><i class="fas fa-user-plus"></i></button>
+                                    <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="high-priority">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>ALT-002</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/32" alt="User">
+                                    <span>Sarah Johnson</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="alert-type craving">
+                                    <i class="fas fa-exclamation-circle"></i> High Self-Reported Craving
+                                </span>
+                            </td>
+                            <td>Today, 09:15 AM</td>
+                            <td><span class="badge-status new">New</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon" title="Trigger Intervention"><i class="fas fa-hand-holding-medical"></i></button>
+                                    <button class="btn-icon" title="Assign"><i class="fas fa-user-plus"></i></button>
+                                    <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>ALT-003</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/32" alt="User">
+                                    <span>Michael Brown</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="alert-type missed">
+                                    <i class="fas fa-calendar-times"></i> Missed Check-In
+                                </span>
+                            </td>
+                            <td>Today, 08:30 AM</td>
+                            <td><span class="badge-status review">In Review</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon" title="Trigger Intervention"><i class="fas fa-hand-holding-medical"></i></button>
+                                    <button class="btn-icon" title="Assign"><i class="fas fa-user-plus"></i></button>
+                                    <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="high-priority">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>ALT-004</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/32" alt="User">
+                                    <span>Emily Wilson</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="alert-type physio">
+                                    <i class="fas fa-heartbeat"></i> Physiological Spike
+                                </span>
+                            </td>
+                            <td>Today, 07:45 AM</td>
+                            <td><span class="badge-status new">New</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon" title="Trigger Intervention"><i class="fas fa-hand-holding-medical"></i></button>
+                                    <button class="btn-icon" title="Assign"><i class="fas fa-user-plus"></i></button>
+                                    <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>ALT-005</td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://via.placeholder.com/32" alt="User">
+                                    <span>David Lee</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="alert-type craving">
+                                    <i class="fas fa-exclamation-circle"></i> High Self-Reported Craving
+                                </span>
+                            </td>
+                            <td>Yesterday, 18:20 PM</td>
+                            <td><span class="badge-status review">In Review</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon" title="Trigger Intervention"><i class="fas fa-hand-holding-medical"></i></button>
+                                    <button class="btn-icon" title="Assign"><i class="fas fa-user-plus"></i></button>
+                                    <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn-icon" disabled><i class="fas fa-chevron-left"></i></button>
+                <button class="page-number active">1</button>
+                <button class="page-number">2</button>
+                <button class="page-number">3</button>
+                <span>...</span>
+                <button class="page-number">10</button>
+                <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Alert Detail Modal (Hidden by default) -->
+            <div class="modal" id="alert-detail-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Alert Details: ALT-001</h2>
+                        <button class="btn-icon close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert-detail-header">
+                            <div class="alert-user-info">
+                                <img src="https://via.placeholder.com/60" alt="User">
+                                <div>
+                                    <h3>John Doe</h3>
+                                    <p>USR-001</p>
+                                    <span class="badge-status high">High Risk</span>
+                                </div>
+                            </div>
+                            <div class="alert-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Alert Type:</span>
+                                    <span class="meta-value">Physiological Spike</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Triggered:</span>
+                                    <span class="meta-value">Today, 10:23 AM</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Status:</span>
+                                    <span class="badge-status new">New</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-detail-content">
+                            <h4>Alert Description</h4>
+                            <p>Significant spike in heart rate (110 BPM) and EDA levels detected. This pattern is consistent with potential craving or stress episode.</p>
+                            
+                            <h4>Physiological Data</h4>
+                            <div class="physio-data-chart">
+                                <!-- Chart placeholder -->
+                                <div class="chart-placeholder">
+                                    <p>Heart Rate & EDA Chart</p>
+                                </div>
+                            </div>
+                            
+                            <h4>Recent User Activity</h4>
+                            <div class="timeline small">
+                                <div class="timeline-item">
+                                    <div class="timeline-icon red">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>Alert Triggered</h5>
+                                        <p>Physiological spike detected</p>
+                                        <span class="timeline-time">Today, 10:23 AM</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon green">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>Daily CBT check-in completed</h5>
+                                        <p>Mood score: 4/10</p>
+                                        <span class="timeline-time">Today, 09:15 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-actions-panel">
+                            <h4>Response Actions</h4>
+                            <div class="action-buttons-group">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-hand-holding-medical"></i> Send Intervention
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-phone"></i> Contact User
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-user-plus"></i> Assign to Clinician
+                                </button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="alert-notes">Add Notes:</label>
+                                <textarea id="alert-notes" placeholder="Enter notes about this alert..."></textarea>
+                            </div>
+                            
+                            <div class="status-change">
+                                <label>Change Status:</label>
+                                <div class="status-buttons">
+                                    <button class="btn-status new active">New</button>
+                                    <button class="btn-status review">In Review</button>
+                                    <button class="btn-status resolved">Resolved</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
