@@ -2,8 +2,11 @@
 const appState = {
     currentPage: 'login',
     user: {
-        name: 'John',
-        riskLevel: 'normal' // normal, moderate, high
+        name: 'John Smith',
+        phone: '+61 400 123 456',
+        email: 'john.smith@example.com',
+        riskLevel: 'normal', // normal, moderate, high
+        hobbies: ''
     }
 };
 
@@ -14,10 +17,9 @@ const pages = {
         <div class="page active" id="login-page">
             <div class="login-container">
                 <div class="app-logo">
-                    <i class="fas fa-heartbeat"></i>
+                    <img src="logo.png" alt="App Logo" style="width: 200px; height: 200px;">
                 </div>
                 <div class="login-form">
-                    <h2 class="text-center">Recovery Support</h2>
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id="username" placeholder="Enter your username">
@@ -782,17 +784,22 @@ const pages = {
             <div class="support-card">
                 <div class="form-group">
                     <label for="user-fullname">Full Name</label>
-                    <input type="text" id="user-fullname" value="John Smith">
+                    <input type="text" id="user-fullname" placeholder="Enter your full name">
                 </div>
                 
                 <div class="form-group">
                     <label for="user-phone">Phone Number</label>
-                    <input type="tel" id="user-phone" value="+61 400 123 456">
+                    <input type="tel" id="user-phone" placeholder="Enter your phone number">
                 </div>
                 
                 <div class="form-group">
                     <label for="user-email">Email</label>
-                    <input type="email" id="user-email" value="john.smith@example.com">
+                    <input type="email" id="user-email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-hobbies">Hobbies</label>
+                    <input type="text" id="user-hobbies" placeholder="Enter your hobbies">
                 </div>
             </div>
             
@@ -1166,6 +1173,25 @@ function navigateTo(page) {
             userNameElement.textContent = appState.user.name;
         }
         updateRiskIndicator();
+    }
+    
+    if (page === 'personalInfo') {
+        const fields = [
+            { id: 'user-fullname', stateKey: 'name' },
+            { id: 'user-phone', stateKey: 'phone' },
+            { id: 'user-email', stateKey: 'email' },
+            { id: 'user-hobbies', stateKey: 'hobbies' }
+        ];
+
+        fields.forEach(field => {
+            const inputElement = document.getElementById(field.id);
+            if (inputElement) {
+                inputElement.value = appState.user[field.stateKey] || '';
+                inputElement.addEventListener('input', (event) => {
+                    appState.user[field.stateKey] = event.target.value;
+                });
+            }
+        });
     }
     
     // Update active nav item
